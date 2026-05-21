@@ -1,4 +1,4 @@
-# React Native Check Generator
+# React Native Invoice Generator
 
 Мобильное приложение на React Native (Expo) с маршрутизацией на основе файлов, кастомной UI-библиотекой, интеграцией RuStore, работой с камерой/файлами и генерацией PDF.
 
