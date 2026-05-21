@@ -300,7 +300,6 @@ export default function TemplatesScreen() {
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      {/* Заголовок с кнопкой создания нового шаблона */}
       <ThemedView style={styles.header}>
         <Text style={styles.title}>Шаблоны услуг</Text>
         <TouchableOpacity
@@ -311,19 +310,12 @@ export default function TemplatesScreen() {
         </TouchableOpacity>
       </ThemedView>
 
-      {/* Отображение выбранного шаблона */}
       {selectedTemplate ? (
         <ThemedView style={styles.selectedTemplateCard}>
           <ThemedView style={styles.templateHeader}>
             <Text style={styles.selectedTemplateName}>
               {selectedTemplate.name}
             </Text>
-            {/* <TouchableOpacity
-              onPress={() => handleDeleteTemplate(selectedTemplate.id)}
-              style={styles.deleteButton}
-            >
-              <LucideIcons.Trash2 size={20} color="#F56565" />
-            </TouchableOpacity> */}
           </ThemedView>
           <Text style={styles.selectedTemplatePrice}>
             {formatCurrency(selectedTemplate.price)}
@@ -390,7 +382,7 @@ export default function TemplatesScreen() {
         <Text style={styles.addNewText}>Добавить новый шаблон</Text>
       </TouchableOpacity>
 
-      {/* ✅ Bottom Sheet вместо Modal - НЕ ломает навигацию */}
+      {/* Bottom Sheet */}
       {showCreateModal && (
         <ThemedView style={styles.bottomSheetOverlay}>
           <TouchableOpacity
@@ -639,7 +631,7 @@ const getStyles = (Colors: ColorPalette) => {
       color: Colors.tint,
       marginLeft: 10,
     },
-    // ✅ Bottom Sheet стили - заменяют Modal
+
     bottomSheetOverlay: {
       ...StyleSheet.absoluteFillObject,
       backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -671,7 +663,7 @@ const getStyles = (Colors: ColorPalette) => {
       alignSelf: "center",
       marginVertical: 12,
     },
-    // Остальные стили модалки
+
     modalHeader: {
       flexDirection: "row",
       justifyContent: "space-between",

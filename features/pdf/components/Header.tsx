@@ -2,7 +2,6 @@ import { useCustomTheme } from "@/shared/context/CustomThemeContext";
 import { ThemedText } from "@/shared/ui/ThemedText";
 import { ThemedView } from "@/shared/ui/ThemedView";
 import { ColorPalette } from "@/types/configs";
-import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { ChevronLeftIcon } from "lucide-react-native";
 import React, { memo, useState } from "react";

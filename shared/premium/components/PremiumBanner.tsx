@@ -10,7 +10,6 @@ import { usePremiumContext } from "@/shared/context/PremiumContext";
 import InputField from "@/shared/ui/InputField";
 import { appStorage } from "@/shared/storage/appStorage";
 import { getPaymentStatus } from "@/yookassa/yookassa";
-import { trackEvent } from "@/tracker/tracker";
 
 export const PremiumBanner = () => {
   const { themeObject } = useCustomTheme();
@@ -26,10 +25,6 @@ export const PremiumBanner = () => {
   } = usePremiumContext();
 
   const hadleSavePremium = () => {
-    trackEvent("premium_button_click", {
-      source: "banner",
-      location: "banner",
-    });
     getPremiumFunc();
   };
   const hadlePromocodePremium = () => {
@@ -179,7 +174,6 @@ export const PremiumBanner = () => {
 
 const getStyles = (Colors: ColorPalette) => {
   return StyleSheet.create({
-    // Стили для активного премиума
     activeContainer: {
       backgroundColor: Colors.accentBackground2,
       borderRadius: 16,

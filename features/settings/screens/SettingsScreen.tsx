@@ -5,7 +5,6 @@ import { ColorPalette } from "@/types/configs";
 import { useCustomTheme } from "@/shared/context/CustomThemeContext";
 import SectionContainer from "@/shared/components/SectionContainer";
 import SwitchContainer from "@/shared/components/SwitchContainer";
-// import InputField from "@/shared/ui/InputField";
 import ButtonGroup from "@/shared/ui/ButtonGroup";
 import { STORAGE_KEYS } from "@/shared/storage/storage";
 import { useStorage } from "@/shared/storage/ useAppStorage";
@@ -17,10 +16,7 @@ export default function SettingsScreen() {
   const styles = React.useMemo(() => getStyles(Colors), [Colors]);
   const storage = useStorage();
   const [deleteAll, setDeleteAll] = useState(false);
-  // const [createArchive, setCreateArchive] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  // const [firstNumber, setFirstNumber] = useState(false);
 
   const handleSave = async () => {
     setLoading(true);
@@ -47,22 +43,6 @@ export default function SettingsScreen() {
   return (
     <ThemedView style={styles.container}>
       <SectionContainer title="Настройки">
-        {/* <SwitchContainer
-          title="Начать новую нумерацию"
-          text="Все старые документы бубут перенесены в архив"
-        >
-          <Switch
-            value={createArchive}
-            onValueChange={setCreateArchive}
-            trackColor={{
-              false: Colors.sectionBackground2,
-              true: Colors.succsess + "40",
-            }}
-            thumbColor={createArchive ? Colors.succsess : Colors.icon}
-            ios_backgroundColor={Colors.sectionBackground2}
-          />
-        </SwitchContainer> */}
-
         <SwitchContainer
           title="Сброс нумерации"
           text="Начать нумерацию документов сначала"
@@ -79,27 +59,6 @@ export default function SettingsScreen() {
             ios_backgroundColor={Colors.sectionBackground2}
           />
         </SwitchContainer>
-
-        {/* <SwitchContainer
-          title="Задать начальный номер"
-          text="Указать номер первого документа вручную"
-          >
-          <Switch
-            value={firstNumber}
-            onValueChange={setFirstNumber}
-            trackColor={{
-              false: Colors.sectionBackground2,
-              true: Colors.succsess + "40",
-            }}
-            thumbColor={firstNumber ? Colors.succsess : Colors.icon}
-            ios_backgroundColor={Colors.sectionBackground2}
-          />
-        </SwitchContainer>
-        {firstNumber && (
-          <View style={{ marginVertical: 8 }}>
-            <InputField editable></InputField>
-          </View>
-        )} */}
 
         <View style={{ marginTop: 18, height: 60 }}>
           <ButtonGroup

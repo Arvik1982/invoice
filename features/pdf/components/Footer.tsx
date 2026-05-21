@@ -3,7 +3,6 @@ import { sharePdf } from "@/shared/lib/functions/sharePdf";
 import { useStorage } from "@/shared/storage/ useAppStorage";
 import ButtonGroup from "@/shared/ui/ButtonGroup";
 import { ThemedView } from "@/shared/ui/ThemedView";
-import { trackEvent } from "@/tracker/tracker";
 import { ColorPalette } from "@/types/configs";
 import { router, useLocalSearchParams } from "expo-router";
 import * as LucideIcons from "lucide-react-native";
@@ -44,10 +43,6 @@ const Footer = () => {
   };
 
   const handleSharePdf = async () => {
-    trackEvent("pdf_share_button_click", {
-      source: "pdf",
-      location: "pdf_preview",
-    });
     if (!id) return;
 
     try {

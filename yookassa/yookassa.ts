@@ -92,7 +92,7 @@ export const getPaymentStatus = async (
     const paymentData = await response.json();
     console.log("Статус платежа:", paymentData.status);
 
-    return paymentData.status; // "pending" | "succeeded" | "canceled" | "waiting_for_capture"
+    return paymentData.status;
   } catch (error) {
     console.error("Ошибка getPaymentStatus:", error);
     return null;
@@ -137,24 +137,22 @@ export const createYooKassaPayment = async (
 
     console.warn("SHOP_ID", SHOP_ID);
     console.warn("SECRET_KEY", SECRET_KEY);
-    // 1. Формируем Basic Auth заголовок
+
     const authString = `${SHOP_ID}:${SECRET_KEY}`;
     const base64Auth = btoa(authString);
     const routeId = `payment_${Date.now()}_${Math.random().toString(36)}`;
 
-    // 2. Генерируем уникальный ключ для запроса
     const idempotenceKey = `payment_${Date.now()}`;
 
-    // 3. Формируем тело запроса
     const requestBody = {
       amount: {
-        value: amount.toFixed(2), // "100.00"
+        value: amount.toFixed(2),
         currency: "RUB",
       },
       capture: true,
       confirmation: {
         type: "redirect",
-        return_url: `invoicepro://(payments)/screen/${routeId}`, // Вернется в приложение
+        return_url: `invoicepro://(payments)/screen/${routeId}`,
       },
       description: description,
     };
@@ -164,24 +162,21 @@ export const createYooKassaPayment = async (
       requestBody: requestBody,
     });
 
-    // 4. Отправляем запрос
     const response = await fetch("https://api.yookassa.ru/v3/payments", {
       method: "POST",
       headers: {
-        Authorization: `Basic ${base64Auth}`, // ← ВОТ ЭТО ВАЖНО!
+        Authorization: `Basic ${base64Auth}`,
         "Idempotence-Key": idempotenceKey,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(requestBody),
     });
 
-    // 5. Проверяем ответ
     if (!response.ok) {
       console.error("Ошибка:", await response.text());
       return null;
     }
 
-    // 6. Парсим ответ
     const paymentData = await response.json();
 
     console.log("Платеж создан! ID:", paymentData.id);

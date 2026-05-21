@@ -3,14 +3,13 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
-  ScrollView,
   TextInput,
   Switch,
 } from "react-native";
 import { ThemedView } from "@/shared/ui/ThemedView";
 import { useCustomTheme } from "@/shared/context/CustomThemeContext";
 import ScreenScrollContainer from "@/shared/components/ScreenScrollContainer";
-import { Invoice, InvoiceType } from "@/types/main";
+import { Invoice } from "@/types/main";
 import { useFocusEffect } from "expo-router";
 import { ThemedText } from "@/shared/ui/ThemedText";
 import * as LucideIcons from "lucide-react-native";
