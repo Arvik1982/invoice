@@ -33,7 +33,6 @@ export const IsPremiumBanner = () => {
 
 const getStyles = (Colors: ColorPalette) => {
   return StyleSheet.create({
-    // Стили для активного премиума
     activeContainer: {
       backgroundColor: Colors.accentBackground2,
       borderRadius: 16,

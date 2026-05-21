@@ -7,8 +7,8 @@ import {
   Inter_900Black,
   useFonts,
 } from "@expo-google-fonts/inter";
-import { ThemeProvider } from "@react-navigation/native"; // Провайдер темы в навигации приложения
-import { Stack, usePathname, useRouter } from "expo-router";
+import { ThemeProvider } from "@react-navigation/native";
+import { Stack } from "expo-router";
 import "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 import getLayoutStyles from "./layoutStyles";
@@ -33,7 +33,7 @@ import { Alert, AppState, KeyboardAvoidingView, Platform } from "react-native";
 import PremiumContextProvider from "@/shared/context/PremiumContext";
 import { AppContextProvider } from "@/shared/context/AppContext";
 import { useColorScheme } from "@/shared/lib/hooks/useColorScheme";
-import { flushEvents, initMyTracker, trackScreenView } from "@/tracker/tracker";
+
 import {
   checkForUpdates,
   completeUpdate,
@@ -107,50 +107,21 @@ const App = () => {
     NavigationBar.setPositionAsync("absolute");
 
     if (colorScheme === "light") {
-      // Светлая тема - голубой акцент
       NavigationBar.setBackgroundColorAsync("#1CA8CE");
-      NavigationBar.setButtonStyleAsync("dark"); // Темные кнопки на светлом фоне
+      NavigationBar.setButtonStyleAsync("dark");
     } else {
-      // Темная тема - темно-серый (рекомендую)
       NavigationBar.setBackgroundColorAsync("#1A1A1A");
-      NavigationBar.setButtonStyleAsync("light"); // Светлые кнопки на темном фоне
+      NavigationBar.setButtonStyleAsync("light");
     }
-  }, [colorScheme]); // ← Важно добавить зависимость!
-
-  const pathname = usePathname();
-
-  useEffect(() => {
-    // Инициализация трекера
-    initMyTracker();
-
-    // При закрытии приложения отправляем данные
-    const subscription = AppState.addEventListener("change", (nextAppState) => {
-      if (nextAppState === "background") {
-        flushEvents();
-      }
-    });
-
-    return () => {
-      subscription.remove();
-      flushEvents(); // Финальная отправка
-    };
-  }, []);
-
-  // Отслеживание смены экранов
-  useEffect(() => {
-    trackScreenView(pathname);
-  }, [pathname]);
+  }, [colorScheme]);
 
   useEffect(() => {
     const checkUpdate = async () => {
       const updateInfo = await checkForUpdates();
       if (updateInfo) {
-        // Если обновление доступно
         if (updateInfo.updatePriority > 5) {
-          // Принудительное обновление
           startImmediateUpdate();
         } else {
-          // Обычное обновление
           startFlexibleUpdate();
         }
       }
@@ -160,16 +131,12 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // Подписываемся на события от RuStore SDK
     const listener = eventEmitter.addListener(
-      Events.INSTALL_STATE_UPDATE, // Слушаем события обновления
+      Events.INSTALL_STATE_UPDATE,
       (state: InstallState) => {
-        // Когда что-то меняется
         console.log("Update state:", state);
 
-        // Проверяем, что именно произошло
         if (state.installStatus === InstallStatus.DOWNLOADED) {
-          // Теперь можно показать диалог
           Alert.alert("Обновление готово", "Установить сейчас?", [
             { text: "Позже", style: "cancel" },
             { text: "Установить", onPress: completeUpdate },
@@ -178,7 +145,6 @@ const App = () => {
       },
     );
 
-    // Обязательно отписываемся, когда компонент уничтожается
     return () => listener.remove();
   }, []);
   if (!fontsLoaded) {

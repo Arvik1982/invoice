@@ -8,7 +8,6 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
 import PremiumCrawnBadge from "@/shared/components/PremiumCrawnBadge";
 import { usePremiumContext } from "@/shared/context/PremiumContext";
-import { trackEvent } from "@/tracker/tracker";
 
 const PremiumButton = () => {
   const { themeObject } = useCustomTheme();
@@ -18,10 +17,6 @@ const PremiumButton = () => {
 
   const { getPremiumFunc, premiumStatus } = usePremiumContext();
   const hadleSavePremium = () => {
-    trackEvent("premium_button_click", {
-      source: "button",
-      location: "main_screen",
-    });
     getPremiumFunc();
   };
 
