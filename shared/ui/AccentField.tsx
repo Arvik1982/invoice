@@ -14,7 +14,7 @@ interface Props {
 export const AccentField = ({ label, numberValue, textValue }: Props) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   const isText = typeof textValue === "string";
   const isNumber = typeof numberValue === "number";

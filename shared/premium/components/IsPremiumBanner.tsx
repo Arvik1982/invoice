@@ -10,7 +10,7 @@ import { usePremiumContext } from "@/shared/context/PremiumContext";
 export const IsPremiumBanner = () => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   const { premiumStatus } = usePremiumContext();
 

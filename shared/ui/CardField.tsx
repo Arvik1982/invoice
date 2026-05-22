@@ -17,7 +17,7 @@ interface CardFieldProps {
 const CardField = ({ icon, error, text, label }: CardFieldProps) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   return (
     <CardContainer style={{ minHeight: 110 }}>

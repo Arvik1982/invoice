@@ -12,7 +12,7 @@ import { useLocalSearchParams } from "expo-router";
 const Sertificate = ({ params }: { params: Invoice }) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
   const { id } = useLocalSearchParams<{ id: string }>();
   if (!params.invoiceDetails?.invoiceEnabled) return null;
 
@@ -25,7 +25,7 @@ const Sertificate = ({ params }: { params: Invoice }) => {
           shareTitle: "Отправить счет",
           showAlert: true,
         },
-        true
+        true,
       );
     } catch {
       console.error("Error:handleCertificateSend");

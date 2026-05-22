@@ -14,7 +14,7 @@ const TaxesHeader = () => {
   const { themeObject } = useCustomTheme();
   const { premiumStatus } = usePremiumContext();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   return (
     <ThemedView style={styles.header}>

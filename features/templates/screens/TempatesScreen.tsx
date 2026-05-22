@@ -23,7 +23,7 @@ import { storage, STORAGE_KEYS } from "@/shared/storage/storage";
 export default function TemplatesScreen() {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   const { control, setValue } = useInvoiceForm();
   const invoice = useWatch({ control }) as Invoice;

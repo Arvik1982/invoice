@@ -27,7 +27,7 @@ const Footer = () => {
   const { themeObject } = useCustomTheme();
 
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
   const storage = useStorage();
   const invoice = useWatch({ control }) as Invoice;
 

@@ -20,7 +20,7 @@ import { LinearGradient } from "expo-linear-gradient";
 export default function InvoiceTitle() {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   const { control, setValue } = useInvoiceForm();
 

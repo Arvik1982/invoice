@@ -12,7 +12,7 @@ import InputField from "@/shared/ui/InputField";
 const InvoiceBasisBox = ({ enabled }: { enabled: boolean }) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
   const { control } = useInvoiceForm();
 
   const totalSumm = useWatch({

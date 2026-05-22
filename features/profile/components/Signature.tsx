@@ -20,7 +20,7 @@ import { usePremiumContext } from "@/shared/context/PremiumContext";
 const Signature = () => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
   const { control, setValue } = useInvoiceForm();
   const { appSettings } = useAppContext();
   const { premiumStatus } = usePremiumContext();

@@ -19,7 +19,7 @@ export default function ScreenScrollContainer({
 }: Props) {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   return (
     <ScrollView

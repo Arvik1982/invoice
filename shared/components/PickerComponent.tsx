@@ -13,7 +13,7 @@ import { useInvoiceForm } from "../context/InvoiceFormContext";
 const PickerComponent = () => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
   const storage = useStorage();
   const { control } = useInvoiceForm();
 

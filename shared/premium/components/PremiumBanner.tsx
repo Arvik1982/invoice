@@ -14,7 +14,7 @@ import { getPaymentStatus } from "@/yookassa/yookassa";
 export const PremiumBanner = () => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
   const [promocode, setPromocode] = useState("");
 
   const {

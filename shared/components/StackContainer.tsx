@@ -9,7 +9,7 @@ type Props = { children: ReactNode };
 const StackContainer = ({ children }: Props) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors as ColorPalette;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   return (
     <GradientBox

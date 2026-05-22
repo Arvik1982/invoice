@@ -11,7 +11,7 @@ const Header = () => {
   const [showPdfPreview, setShowPdfPreview] = useState(true);
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   if (!showPdfPreview) router.back();
 

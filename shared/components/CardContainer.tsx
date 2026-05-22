@@ -20,7 +20,7 @@ const CardContainer: FC<Props> = ({
 }: Props) => {
   const { theme, themeObject } = useCustomTheme();
   const Colors = themeObject?.colors as ColorPalette;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   return (
     <GradientBox

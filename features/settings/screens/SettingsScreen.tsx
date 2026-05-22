@@ -13,7 +13,7 @@ import Toast from "react-native-toast-message";
 export default function SettingsScreen() {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
   const storage = useStorage();
   const [deleteAll, setDeleteAll] = useState(false);
   const [loading, setLoading] = useState(false);

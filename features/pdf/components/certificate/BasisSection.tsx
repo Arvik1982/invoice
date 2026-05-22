@@ -12,7 +12,7 @@ type Props = {
 const BasisSection = ({ basis }: Props) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
   if (!basis) return null;
   return (
     <ThemedView style={styles.basisSection}>

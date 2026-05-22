@@ -8,7 +8,7 @@ import { Fonts } from "../config/fonts";
 const GradientIcon = () => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
   return (
     <GradientBox
       colors={[Colors.accentBackground2, Colors.accentBackground3]}

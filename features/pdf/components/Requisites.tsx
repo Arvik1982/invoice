@@ -17,7 +17,7 @@ type Props = {
 const Requisites = ({ params }: Props) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   const [copied, setCopied] = useState(false);
 
@@ -30,7 +30,7 @@ const Requisites = ({ params }: Props) => {
         Бик: params?.contractorDetails?.bik,
         "Расчётный счёт": params?.contractorDetails?.accountNumber || "",
       },
-      "Реквизиты скопированы в буфер обмена"
+      "Реквизиты скопированы в буфер обмена",
     );
 
     if (success) {

@@ -18,7 +18,7 @@ type Props = {
 const EmptyInvicesList = ({ filter, invoices }: Props) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   if (filteredInvoices(filter, invoices).length !== 0) {
     return null;

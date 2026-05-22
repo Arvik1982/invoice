@@ -15,7 +15,7 @@ type Props = {
 const Total = ({ params }: Props) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   return (
     <ThemedView style={styles.totalSection}>

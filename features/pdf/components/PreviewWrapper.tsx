@@ -9,7 +9,7 @@ import { ScrollView, StyleSheet } from "react-native";
 const PreviewWrapper: FC<{ children: ReactNode }> = ({ children }) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   return (
     <ScrollView

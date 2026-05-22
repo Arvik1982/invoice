@@ -28,7 +28,7 @@ const ButtonGroup = ({
 }: ButtonProps) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors!), [Colors]);
+  const styles = getStyles(Colors!);
 
   if (loading) {
     return (

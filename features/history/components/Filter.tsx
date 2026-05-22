@@ -8,7 +8,7 @@ import { Platform, StyleSheet, Text, TouchableOpacity } from "react-native";
 const Filter = ({ filter, setFilter }) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
 
   return (
     <ThemedView style={styles.filterContainer}>

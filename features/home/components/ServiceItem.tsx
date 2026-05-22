@@ -27,7 +27,7 @@ const ServiceItem = ({ item, index, onRemove }: Props) => {
   const { themeObject } = useCustomTheme();
   const { setValue, getValues } = useInvoiceForm();
   const Colors = themeObject?.colors;
-  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
+  const styles = getStyles(Colors);
   const [name, setName] = useState(item.ServiceItem);
   const [price, setPrice] = useState(item.price);
   const [newTemplate, setNewTemplate] = useState<ServiceTemplate>({
