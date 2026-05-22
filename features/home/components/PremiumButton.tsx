@@ -13,7 +13,7 @@ const PremiumButton = () => {
   const { themeObject } = useCustomTheme();
 
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   const { getPremiumFunc, premiumStatus } = usePremiumContext();
   const hadleSavePremium = () => {

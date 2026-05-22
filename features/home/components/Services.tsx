@@ -20,7 +20,7 @@ const Services = () => {
   const { themeObject } = useCustomTheme();
   const { premiumStatus } = usePremiumContext();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
   const { control } = useInvoiceForm();
   const { remove } = useFieldArray({
     control,

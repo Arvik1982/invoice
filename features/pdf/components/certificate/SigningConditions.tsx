@@ -8,7 +8,7 @@ import { StyleSheet } from "react-native";
 const SigningConditions = () => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   return (
     <ThemedView style={styles.conditionsSection}>

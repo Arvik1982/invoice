@@ -43,7 +43,7 @@ const ConfirmBox = ({
 
   const Colors = themeObject?.colors;
 
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   const handlePay = async () => {
     setDisplayConfirmBox(false);

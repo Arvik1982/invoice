@@ -124,7 +124,7 @@ export default function TaxesScreen() {
   const [includeInvoices, setIncludeInvoices] = useState(true);
 
   const Colors = themeObject?.colors || {};
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
   const storage = useStorage();
 
   // Загрузка счетов

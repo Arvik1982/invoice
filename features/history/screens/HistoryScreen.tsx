@@ -29,7 +29,7 @@ export default function HistoryScreen() {
   const [originalInvoices, setOriginalInvoices] = useState<Invoice[]>([]);
 
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
   const storage = useStorage();
 
   const getStorageInvoices = async () => {

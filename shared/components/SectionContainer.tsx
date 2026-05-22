@@ -20,7 +20,7 @@ type Props = {
 const SectionContainer: FC<Props> = ({ children, index, title, style }) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors as ColorPalette;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   return (
     <Animated.View

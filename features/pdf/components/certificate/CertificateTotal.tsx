@@ -14,7 +14,7 @@ type Props = {
 const CertificateTotal = ({ params }: Props) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   // Функция для преобразования суммы прописью (упрощенная)
   const numberToWords = (num: number): string => {

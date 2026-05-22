@@ -33,7 +33,7 @@ const InputField = ({
 }: InputProps) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   return (
     <ThemedView style={[styles.infoField, containerStyle]}>

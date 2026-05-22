@@ -14,7 +14,7 @@ type Props = {
 export default function InvoiceListFilter({ filter, setFilter }: Props) {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors as ColorPalette;
-  const styles = useMemo(() => getStyles(Colors); 
+  const styles = useMemo(() => getStyles(Colors), [Colors]);
 
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
   const filterFieldIndex = 0;

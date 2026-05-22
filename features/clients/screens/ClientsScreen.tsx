@@ -29,7 +29,7 @@ export default function ClientsScreen() {
   const { themeObject } = useCustomTheme();
   const { setValue } = useInvoiceForm();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   const { premiumStatus } = usePremiumContext();
   const [isSearchopen, setIsSearchOpen] = useState(false);

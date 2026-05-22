@@ -17,7 +17,7 @@ interface Props extends ComponentProps<typeof Animated.View> {
 const AnimatedContainer = ({ children, style, entering }: Props) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
   return (
     <Animated.View
       entering={

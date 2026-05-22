@@ -11,7 +11,7 @@ import InvoiceToggleBox from "../components/InvoiceToggleBox";
 export default function CreateInvoiceScreen() {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   return (
     <ThemedView style={styles.container}>

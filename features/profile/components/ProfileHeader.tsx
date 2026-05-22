@@ -15,7 +15,7 @@ const ProfileHeader = () => {
   const { themeObject } = useCustomTheme();
   const { premiumStatus } = usePremiumContext();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   return (
     <ThemedView style={styles.header}>

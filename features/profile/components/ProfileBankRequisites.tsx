@@ -19,7 +19,7 @@ import { FIELD_STYLES } from "@/shared/constants/styles";
 const ProfileBankRequisites = () => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
   const { control } = useInvoiceForm();
   const { appSettings } = useAppContext();
 

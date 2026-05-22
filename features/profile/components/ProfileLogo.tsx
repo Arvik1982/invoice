@@ -21,7 +21,7 @@ import { usePremiumContext } from "@/shared/context/PremiumContext";
 const ProfileLogo = () => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
   const { control, setValue } = useInvoiceForm();
   const { appSettings } = useAppContext();
   const { premiumStatus } = usePremiumContext();

@@ -7,7 +7,7 @@ import { useCustomTheme } from "./context/CustomThemeContext";
 export const Trash = ({ onPress }: { onPress: any }) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   return (
     <TouchableOpacity

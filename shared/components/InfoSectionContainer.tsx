@@ -12,7 +12,7 @@ type Props = {
 const InfoSectionContainer: FC<Props> = ({ children, index, style }) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   return (
     <Animated.View

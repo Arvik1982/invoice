@@ -16,7 +16,7 @@ import { useStorage } from "@/shared/storage/ useAppStorage";
 export const Footer = () => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
   const storage = useStorage();
   const { appSettings, setAppSettingsFunc, profileRestore } = useAppContext();
   const { setValue, control } = useInvoiceForm();

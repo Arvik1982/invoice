@@ -30,7 +30,7 @@ const ClientItem = ({
 }: ClientItemProps) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   const handleDeletePress = () => {
     Alert.alert(

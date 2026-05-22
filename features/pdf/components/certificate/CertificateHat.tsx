@@ -15,7 +15,7 @@ type Props = {
 const CertificateHat = ({ params, certificateBasis }: Props) => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
 
   return (
     <ThemedView style={styles.certificateHeader}>

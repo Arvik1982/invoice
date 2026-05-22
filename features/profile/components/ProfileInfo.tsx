@@ -20,7 +20,7 @@ import { FIELD_STYLES } from "@/shared/constants/styles";
 const ProfileInfo = () => {
   const { themeObject } = useCustomTheme();
   const Colors = themeObject?.colors;
-  const styles = getStyles(Colors);
+  const styles = React.useMemo(() => getStyles(Colors), [Colors]);
   const { appSettings } = useAppContext();
   const { control } = useInvoiceForm();
 
